@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://6iq5r6m0b118"]
+
+[ext_resource type="Script" path="res://script/stare_monster.gd" id="1_lhifn"]
+[ext_resource type="AudioStream" uid="uid://biwkielfsbl6h" path="res://resources/Scary Sounds/Short Ambience/Vinyl Ghost.wav" id="2_wgedn"]
+[ext_resource type="AudioStream" uid="uid://cfm037adbu1ds" path="res://resources/Scary Sounds/Short Ambience/Breather.wav" id="3_hs5up"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yvjf"]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(0.32549, 0.470588, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ht0n7"]
+material = SubResource("StandardMaterial3D_6yvjf")
+
+[node name="stareMonster" type="Node3D"]
+script = ExtResource("1_lhifn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ht0n7")
+
+[node name="Appear" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_wgedn")
+unit_size = 1.5
+pitch_scale = 1.43
+
+[node name="Disappear" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_hs5up")

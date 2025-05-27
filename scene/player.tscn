@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbbp6jiaa6lw4"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_jn8t5"]
+[ext_resource type="Script" path="res://player_state_controller.gd" id="2_rvl2m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_exqnh"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_jn8t5")
+
+[node name="HeadPivot" type="Node3D" parent="."]
+
+[node name="CameraPivot" type="Node3D" parent="HeadPivot"]
+
+[node name="Camera3D" type="Camera3D" parent="HeadPivot/CameraPivot"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="HeadPivot/CameraPivot"]
+current = true
+
+[node name="blanket" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.79, 0, 0, 0, 0.92, 0, 0, 0, 0.04, 0, -0.422627, -0.169148)
+mesh = SubResource("BoxMesh_exqnh")
+
+[node name="playerState" type="Node3D" parent="."]
+script = ExtResource("2_rvl2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
