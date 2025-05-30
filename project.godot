@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+NightManager="*res://script/night_manager.gd"
 PlayerStateController="*res://player_state_controller.gd"
 
 [input]

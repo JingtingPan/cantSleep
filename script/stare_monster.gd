@@ -6,7 +6,7 @@ extends Node3D
 #@export var appear_time: float = 7.0         # 玩家盯着同一方向多久后怪物出现
 @export var attack_time: float = 5.0       # 玩家仍未转视角则攻击时间
 @export var attack_distance: float = 2.0     # 攻击距离（用于更强沉浸）
-@export var stare_sanity_drain: float = 5.0  # 每秒盯着时理智值下降速度
+@export var stare_sanity_drain: float = 3.0 # 每秒盯着时理智值下降速度
 @export var despawn_delay: float = 5.0     # 玩家转头后多少秒怪物才消失
 @export var warning_threshold: float = 3.5 # 距离攻击还有几秒时开始警告
 @export var attack_reduce_sanity: float = 15.0 # 每次怪物攻击时扣掉的玩家的理智值

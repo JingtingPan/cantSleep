@@ -11,7 +11,7 @@ signal sleepiness_changed(new_value)
 # -------------------------
 # 玩家状态变量
 # -------------------------
-var sleepiness: float = 0.0       # 入睡度 0-100
+var sleepiness: float = 90.0      # 入睡度 0-100
 var sanity: float = 100.0         # 理智值 0-100
 var is_covered: bool = false      # 是否盖被子
 var is_eye_closed: bool = false     # 是否闭眼（影响sleep增长）
@@ -24,7 +24,7 @@ var view_hold_time: float = 0.0   # 当前朝向持续时间（用于触发盯�
 # -------------------------
 @export var sleep_gain_rate := 4.0     # 每秒闭眼状态下增长入睡度速度
 @export var sleep_loss_rate := 0.8     # 醒着时降低入睡度速度
-@export var sanity_decay_rate := 1.0   # 每秒自然下降（焦虑）
+@export var sanity_decay_rate := 0.5   # 每秒自然下降（焦虑）
 @export var sanity_restore_rate := 3.0 # 安全状态下恢复速度
 @export var sanity_floor: float = 20.0       # 低于此值开始触发幻觉
 @export var cover_rate : float = 1.2 #盖被子时的变化速率
@@ -51,6 +51,7 @@ func update_sleepiness(delta):
 			sleepiness -= sleep_loss_rate * delta #睁眼时没盖被入睡度正常下降
 	sleepiness = clamp(sleepiness, 0, 100)
 	emit_signal("sleepiness_changed", sleepiness)
+	
 
 # -------------------------
 # 理智值更新逻辑
@@ -125,3 +126,13 @@ func is_hallucinating() -> bool:
 # -------------------------
 func is_fully_asleep() -> bool:
 	return sleepiness >= 100.0
+
+func get_player_status() -> Dictionary:
+	return {
+		"sleepiness": sleepiness,
+		"sanity": sanity,
+		"is_covered": is_covered,
+		"is_eye_closed": is_eye_closed,
+		"current_view_index": current_view_index,
+		"is_in_safe_state": is_in_safe_state
+	}

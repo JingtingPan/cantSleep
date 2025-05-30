@@ -41,7 +41,7 @@ var can_toggle_eye := true
 @export var mouse_sensitivity = 0.2
 
 # 节点引用
-@onready var camera: Camera3D = $Node3D/Camera3D
+@onready var camera: Camera3D = $HeadPivot/CameraPivot/Camera3D
 @onready var blanket: MeshInstance3D = $blanket
 @onready var state = PlayerStateController
 @onready var eye_overlay: ColorRect = $CanvasLayer/ColorRect
