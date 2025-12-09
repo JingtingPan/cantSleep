@@ -16,7 +16,7 @@ extends Node3D
 @onready var state = PlayerStateController
 @onready var appear_sound: AudioStreamPlayer3D = $Appear
 @onready var disappear_sound: AudioStreamPlayer3D = $Disappear
-@onready var warning_ui = get_node_or_null("/root/Main/CanvasLayer/WarningFlash")
+@onready var warning_ui = get_node_or_null("/root/main/CanvasLayer/WarningFlash")
 var active_view_index: int = -1              # 怪物当前出现的视角索引
 var has_spawned: bool = false
 var attack_timer: float = 0.0

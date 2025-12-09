@@ -11,7 +11,7 @@ signal sleepiness_changed(new_value)
 # -------------------------
 # 玩家状态变量
 # -------------------------
-var sleepiness: float = 90.0      # 入睡度 0-100
+var sleepiness: float = 0.0      # 入睡度 0-100
 var sanity: float = 100.0         # 理智值 0-100
 var is_covered: bool = false      # 是否盖被子
 var is_eye_closed: bool = false     # 是否闭眼（影响sleep增长）

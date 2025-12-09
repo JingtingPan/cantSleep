@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbbp6jiaa6lw4"]
+[gd_scene load_steps=6 format=3 uid="uid://bbbp6jiaa6lw4"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_jn8t5"]
-[ext_resource type="Script" path="res://player_state_controller.gd" id="2_rvl2m"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_jn8t5"]
+[ext_resource type="Script" path="res://script/player_state_controller.gd" id="2_rvl2m"]
+[ext_resource type="Shader" path="res://scene/eye_mask.gdshader" id="3_x0us5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_exqnh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77120"]
+shader = ExtResource("3_x0us5")
+shader_parameter/time = null
+shader_parameter/strength = 0.5
+shader_parameter/density = 300.0
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_jn8t5")
@@ -26,12 +33,32 @@ script = ExtResource("2_rvl2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="EyeMask" type="Control" parent="CanvasLayer"]
 visible = false
-modulate = Color(1, 1, 1, 0)
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EyeMask"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.00392157, 1)
+
+[node name="NoiseTexture" type="ColorRect" parent="CanvasLayer/EyeMask"]
+visible = false
+material = SubResource("ShaderMaterial_77120")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.596078)

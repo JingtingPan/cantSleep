@@ -50,7 +50,7 @@ func _process(delta):
 		return	
 	# 如果玩家背对怪物，就开始靠近
 # 是否背对太久，触发移动
-	if not is_facing_player():
+	if PlayerStateController.is_eye_closed or not is_facing_player():
 		time_not_facing += delta
 		time_facing = 0.0
 

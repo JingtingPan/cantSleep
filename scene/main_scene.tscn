@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://bnhpt4tk3spbx"]
+[gd_scene load_steps=31 format=3 uid="uid://bnhpt4tk3spbx"]
 
 [ext_resource type="Texture2D" uid="uid://cwhj225cgyx0c" path="res://resources/Bedroom Furniture Textures/Canvas/Canvas-smoothness.png" id="1_bf7ki"]
 [ext_resource type="PackedScene" uid="uid://bbbp6jiaa6lw4" path="res://scene/player.tscn" id="1_trap8"]
 [ext_resource type="Texture2D" uid="uid://bx3u83frgcfna" path="res://resources/Bedroom Furniture Textures/Wood_Oak/Wood_Oak-ao.png" id="2_xup4h"]
 [ext_resource type="Texture2D" uid="uid://bh1etcxlqb4i0" path="res://resources/- Classic 64 Asset Pack 0.6/Walls/Materials/wall_stucco_03.jpg" id="3_khx0k"]
 [ext_resource type="Script" path="res://scene/debug_status_overlay.gd" id="3_vgucp"]
-[ext_resource type="PackedScene" uid="uid://6iq5r6m0b118" path="res://scene/stare_monster.tscn" id="5_spy0t"]
 [ext_resource type="Script" path="res://script/stare_monster_manager.gd" id="6_n3j6n"]
 [ext_resource type="PackedScene" uid="uid://crw8cw276nyjx" path="res://models/mattress.tscn" id="7_0m8sv"]
 [ext_resource type="Script" path="res://script/lamp.gd" id="7_pakay"]
@@ -15,15 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://5bk178xbiik8" path="res://models/furniture_night_stand_drawer.tscn" id="14_3hi0h"]
 [ext_resource type="PackedScene" uid="uid://bwg2705alevt6" path="res://models/electronic_lamp.tscn" id="15_m5v3n"]
 [ext_resource type="Script" path="res://script/warning_flash.gd" id="15_q2ewj"]
-[ext_resource type="AudioStream" uid="uid://cfap3tj0miwm3" path="res://resources/Horror SFX Free/Ambient/Vent_airflow.wav" id="16_oo51b"]
+[ext_resource type="AudioStream" uid="uid://cfap3tj0miwm3" path="res://resources/sfx/Horror SFX Free/Ambient/Vent_airflow.wav" id="16_oo51b"]
 [ext_resource type="Script" path="res://script/night_manager.gd" id="17_gcpeh"]
-[ext_resource type="PackedScene" uid="uid://0n8yiqo0ifbx" path="res://scene/walk_monster.tscn" id="18_4b2va"]
-[ext_resource type="AudioStream" uid="uid://dgbqg6re3gbjf" path="res://resources/Horror SFX Free/Ambient/Rain_Medium_2.wav" id="19_vdox6"]
+[ext_resource type="AudioStream" uid="uid://dgbqg6re3gbjf" path="res://resources/sfx/Horror SFX Free/Ambient/Rain_Medium_2.wav" id="19_vdox6"]
 [ext_resource type="Script" path="res://scene/thunder_noise.gd" id="20_lc8ul"]
-[ext_resource type="AudioStream" uid="uid://dxp2t5ma3fmg0" path="res://resources/thunder_sound/heavy-thunder-sound-effect-no-copyright-338980.mp3" id="21_asif5"]
-[ext_resource type="AudioStream" uid="uid://m682v8tqx60c" path="res://resources/thunder_sound/loud-thunder-192165.mp3" id="22_e4e8l"]
-[ext_resource type="AudioStream" uid="uid://bda6hrlfkinoa" path="res://resources/thunder_sound/peals-of-thunder-191992.mp3" id="23_mbpm4"]
-[ext_resource type="AudioStream" uid="uid://bdikn61sl6841" path="res://resources/thunder_sound/thunder-338046.mp3" id="24_siikd"]
+[ext_resource type="AudioStream" uid="uid://dxp2t5ma3fmg0" path="res://resources/sfx/thunder_sound/heavy-thunder-sound-effect-no-copyright-338980.mp3" id="21_asif5"]
+[ext_resource type="AudioStream" uid="uid://m682v8tqx60c" path="res://resources/sfx/thunder_sound/loud-thunder-192165.mp3" id="22_e4e8l"]
+[ext_resource type="AudioStream" uid="uid://bda6hrlfkinoa" path="res://resources/sfx/thunder_sound/peals-of-thunder-191992.mp3" id="23_mbpm4"]
+[ext_resource type="AudioStream" uid="uid://bdikn61sl6841" path="res://resources/sfx/thunder_sound/thunder-338046.mp3" id="24_siikd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6o0di"]
 albedo_texture = ExtResource("1_bf7ki")
@@ -52,7 +50,7 @@ albedo_texture = ExtResource("2_xup4h")
 [sub_resource type="Environment" id="Environment_htmkl"]
 background_mode = 3
 ambient_light_source = 3
-ambient_light_color = Color(0.0675886, 0.254513, 0.289635, 1)
+ambient_light_color = Color(0.0235294, 0.133333, 0.152941, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.2
 fog_light_color = Color(0.385462, 0.559097, 0.555595, 1)
@@ -177,7 +175,7 @@ script = ExtResource("7_pakay")
 [node name="OmniLight3D" type="OmniLight3D" parent="furnitures/Electronic_Lamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 light_color = Color(1, 0.87451, 0.666667, 1)
-light_energy = 0.3
+light_energy = 0.152
 omni_range = 8.0
 
 [node name="room" type="Node3D" parent="."]
@@ -220,20 +218,60 @@ motion_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.47428)
 script = ExtResource("6_n3j6n")
 
-[node name="stareMonster_left" parent="stareMonster_manager" instance=ExtResource("5_spy0t")]
+[node name="stareMonster_left" parent="stareMonster_manager"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, -1.32806, 1.10327, 0.120211)
+script = null
 
-[node name="stareMonster_mid" parent="stareMonster_manager" instance=ExtResource("5_spy0t")]
+[node name="stareMonster_mid" parent="stareMonster_manager"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0.128123, 1.92765, 0.120211)
+script = null
 
-[node name="stareMonster_right" parent="stareMonster_manager" instance=ExtResource("5_spy0t")]
+[node name="stareMonster_right" parent="stareMonster_manager"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 1.32882, 1.10327, 0.120211)
+script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_htmkl")
 
-[node name="walk_monster" parent="." instance=ExtResource("18_4b2va")]
+[node name="walk_monster" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3, 0.22018, 2.31401)
+script = null
 
 [node name="NightManager" type="Node3D" parent="."]
 script = ExtResource("17_gcpeh")

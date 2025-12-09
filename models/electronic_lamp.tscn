@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dqbexvbwyjy3y" path="res://resources/Bedroom Furniture Meshes 2.0/Electronic_Lamp.fbx" id="1_3ndvs"]
 [ext_resource type="Texture2D" uid="uid://cwhj225cgyx0c" path="res://resources/Bedroom Furniture Textures/Canvas/Canvas-smoothness.png" id="2_p8d0a"]
-[ext_resource type="AudioStream" uid="uid://rdf7qnvloac4" path="res://resources/Scary Sounds/flourescent-light-29596-[AudioTrimmer.com].mp3" id="3_6wnlq"]
-[ext_resource type="AudioStream" uid="uid://bkllexv006w0a" path="res://resources/Horror SFX Free/House & Office/Fluorescent light bulb buzz_2.wav" id="4_1omfm"]
+[ext_resource type="AudioStream" uid="uid://rdf7qnvloac4" path="res://resources/sfx/Scary Sounds/flourescent-light-29596-[AudioTrimmer.com].mp3" id="3_6wnlq"]
+[ext_resource type="AudioStream" uid="uid://bkllexv006w0a" path="res://resources/sfx/Horror SFX Free/House & Office/Fluorescent light bulb buzz_2.wav" id="4_1omfm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcb5y"]
 

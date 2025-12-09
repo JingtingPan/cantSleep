@@ -12,13 +12,21 @@ config_version=5
 
 config/name="cantSleep"
 run/main_scene="res://scene/main_scene.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 NightManager="*res://script/night_manager.gd"
-PlayerStateController="*res://player_state_controller.gd"
+PlayerStateController="*res://script/player_state_controller.gd"
+
+[dotnet]
+
+project/assembly_name="cantSleep"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
